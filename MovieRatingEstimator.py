@@ -158,4 +158,5 @@ class MovieRatingEstimator:
            * userId: User ID
            * movieId: Movie ID
         """
-        return self.scaler.inverse_transform([[self.get_rating_estimate(userId,movieId)]])[0][0]
+        score = self.scaler.inverse_transform([[self.get_rating_estimate(userId,movieId)]])[0][0]
+        return round(score * 2) / 2
